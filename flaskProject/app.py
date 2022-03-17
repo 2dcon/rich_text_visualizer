@@ -10,28 +10,6 @@ app = Flask(__name__)
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 
 
-def getCode(text):
-    i = 0
-    code = []
-    while i < len(text):
-        step = 1
-        if text[i] in constants.SP_CHAR:
-            code.append(text[i])
-        elif text[i] == constants.DELIMITER[0]:
-            if text[i + 1] == constants.DELIMITER[2] and text[i + 2] == constants.DELIMITER[1]:
-                code.append(text[i:i + 3])
-                step = 3
-        elif text[i] == constants.DELIMITER[1]:
-            h = text[i + 1:i + 7]
-            if isHex(h):
-                code.append(h)
-                step = 8
-
-        i += step
-
-    return code
-
-
 def checkCode(text0, text1, result):
     list0 = []
     list1 = []
@@ -85,6 +63,7 @@ def getRich(text: string):
                 rtxt += constants.TAG_CLOSE['h']
                 step += 2
                 is_code = True
+
         # regular text
         if not is_code:
             rtxt += text[idx]
@@ -107,7 +86,6 @@ if __name__ == "__main__":
 
 @app.route('/')
 def index():
-    print(getCode(constants.test1))
     return render_template('main.html')
 
 
