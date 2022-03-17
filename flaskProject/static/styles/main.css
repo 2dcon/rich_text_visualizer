@@ -1,0 +1,28 @@
+.textbox
+{
+    font-size:14pt;
+    color:#cccccc;
+    background-color:#3f3f3f;
+}
+
+.child0 {
+    float: left;
+    width: 49.9%;
+}
+
+/*.child0:after {*/
+/*    background-color: green;*/
+/*    width: 1%;*/
+/*    height: 100%;*/
+/*    left: 50%;*/
+/*    position: absolute;*/
+/*}*/
+
+.child1 {
+    float: right;
+    width: 49.9%;
+}
+
+.parent {
+    width: 100%;
+}
